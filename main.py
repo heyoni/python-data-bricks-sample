@@ -7,8 +7,9 @@ from pyspark.sql.types import StructType, StructField, StringType, IntegerType
 from pyspark.sql.functions import percent_rank, col
 from pyspark.sql.window import Window
 
-os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3.6'
-os.environ['PYSPARK_PYTHON'] = 'python3.6'
+if 'PYSPARK_DRIVER_PYTHON' not in os.environ.keys() and 'PYSPARK_DRIVER_PYTHON' not in os.environ.keys():
+    os.environ['PYSPARK_DRIVER_PYTHON'] = 'python3.6'
+    os.environ['PYSPARK_PYTHON'] = 'python3.6'
 
 # Decrypt CSV file
 # https://pgpy.readthedocs.io/en/latest/examples.html
